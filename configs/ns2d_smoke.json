@@ -1,0 +1,79 @@
+{
+  "seed": 123,
+  "device": "cpu",
+  "dtype": "float32",
+
+  "data": {
+    "dataset": "ns2d",
+    "batch_size": 2,
+    "num_workers": 0,
+    "pin_memory": false,
+    "root_dir": "data/ns2d/ns2d_traj",
+    "split": "train",
+    "eval_split": "test",
+    "frame_stride": 1,
+    "spatial_stride": 4,
+    "max_samples": 16,
+    "eval_max_samples": 8,
+    "seq_len": 51,
+    "num_nodes": 256,
+    "dim": 2,
+    "dt": 0.0
+  },
+
+  "graph": {
+    "builder": "radius",
+    "radius": 0.1,
+    "max_neighbors": 16,
+    "cache_edges": true,
+    "edge_rebuild_interval": 0
+  },
+
+  "model": {
+    "node_in_dim": 3,
+    "edge_in_dim": 3,
+    "hidden_dim": 128,
+    "num_message_passing_steps": 4,
+    "out_dim": 1
+  },
+
+  "train": {
+    "steps": 20,
+    "lr": 0.0003,
+    "weight_decay": 0.0,
+    "grad_clip": 1.0,
+    "log_every": 1,
+    "eval_every": 5,
+    "ckpt_every": 10,
+    "amp": false
+  },
+
+  "loss": {
+    "kind": "mse",
+    "huber_delta": 1.0,
+    "rollout_weight": 0.25,
+    "rollout_horizon": 3
+  },
+
+  "norm": {
+    "enabled": true,
+    "update_steps": 100,
+    "freeze_after": 0
+  },
+
+  "integrator": {
+    "kind": "semi_implicit_euler"
+  },
+
+  "eval": {
+    "rollout_horizon": 10,
+    "max_batches": 2,
+    "save_json": true,
+    "save_csv": true,
+    "save_predictions": true,
+    "prediction_samples": 4,
+    "save_plots": false,
+    "plot_format": "gif",
+    "plot_fps": 10
+  }
+}
