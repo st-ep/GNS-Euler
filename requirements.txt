@@ -1,0 +1,2 @@
+# Runtime dependencies
+torch>=2.0

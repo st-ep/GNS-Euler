@@ -1,0 +1,19 @@
+.venv/
+__pycache__/
+.pytest_cache/
+*.pyc
+*.pyo
+*.pyd
+*.so
+build/
+dist/
+*.egg-info/
+runs/
+
+# Generated data and videos
+data/ns2d/ns2d_traj/
+data/ns2d/ns2d_snapshot/
+data/ns2d/data_plots/
+*.npz
+*.mp4
+*.gif

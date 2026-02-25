@@ -1,0 +1,9 @@
+name: gns-euler
+channels:
+  - conda-forge
+dependencies:
+  - python>=3.10,<3.14
+  - pip
+  - pip:
+      - -r requirements-dev.txt
+      - -e .
